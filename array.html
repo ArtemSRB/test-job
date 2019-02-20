@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<script>
+  const array = ['foo', 'bar', 'baz'];
+  (function () {
+    window.onload = function() {
+      array.forEach(arrFunction);
+      function arrFunction(array_element) {
+        document.querySelector('.resultJs').innerHTML += "<p>" + array_element + "</p>";
+      }
+    }
+  })();
+  $(document).ready(function () {
+    $.each(array, function (key, value) {
+      $('.resultJq').append(`<p>${value}</p>`)
+    });
+  });
+</script>
+<div class="resultJs">
+</div>
+<div class="resultJq">
+</div>
+</body>
+</html>
