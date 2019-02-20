@@ -1,0 +1,5 @@
+{
+    "foo": 123, "bar": 456, "baz": 789,
+    "sub": { "item1": "qwe" , "item2":  "qwe",  "item3": [ { "item1":  123, "item2": 5665 , "item3": "wer"} ]  }
+    
+}
