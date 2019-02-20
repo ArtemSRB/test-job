@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<script>
+  let now = new Date();
+    $(document).ready( function () {
+      $('.result').click(function () {
+        $.post({
+          url: "http://api-tz.avangard.local/api/test",
+          dataType: 'json',
+          method: "POST",
+          data: { foo: now, bar: "Boston" }
+        }).done(function(data) {
+          console.log(data)
+        }).fail(function(response) {
+          console.log(response)
+        });
+      })
+
+    });
+    (async () => {
+      const rawResponse = await fetch('http://api-tz.avangard.local/api/test', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        data: { foo: now, bar: "Boston" }
+      }).then(function(res){ console.log(res) })
+        .catch(function(res){ console.log(res) });
+      const content = await rawResponse.json();
+      console.log(content);
+    })();
+</script>
+<div class="result">
+Click
+</div>
+</body>
+</html>
